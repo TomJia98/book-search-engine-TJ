@@ -81,7 +81,6 @@ const resolvers = {
       }
     },
     removeBook: async (parent, { bookId }, context) => {
-      // TODO: complete this
       const user = context.user;
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },
