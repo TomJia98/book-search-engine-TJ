@@ -4,7 +4,7 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
-      console.log(context);
+      console.log("context");
       if (!context.user) {
         throw new Error("User is not logged in");
       }
@@ -18,7 +18,7 @@ const resolvers = {
       if (!foundUser) {
         throw new Error("User not found!");
       }
-
+      console.log(foundUser);
       return foundUser;
     },
   },
