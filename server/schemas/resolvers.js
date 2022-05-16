@@ -61,19 +61,14 @@ const resolvers = {
         user,
       };
     },
-    saveBook: async (
-      parent,
-      { bookId, authors, description, title, image, link },
-      context
-    ) => {
+    saveBook: async (parent, { bookData }, context) => {
       const user = context.user;
-      const book = { bookId, authors, description, title, image, link };
       console.log(user);
       try {
-        const updatedUser = await User.findOneAndUpdate(
+        const updatedUser = await User.findByIdAndUpdate(
           { _id: user._id },
-          { $addToSet: { savedBooks: book } },
-          { new: true, runValidators: true }
+          { $addToSet: { savedBooks: bookData } },
+          { new: true }
         );
         return updatedUser;
       } catch (err) {
