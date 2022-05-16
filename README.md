@@ -22,7 +22,7 @@ n/a
 
 ## Usage
 
-visit the live page at
+visit the live page at https://booksearch-graphql.herokuapp.com/
 
 ![live app](./liveApp.png)
 
